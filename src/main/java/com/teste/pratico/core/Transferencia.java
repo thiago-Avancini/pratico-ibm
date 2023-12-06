@@ -18,12 +18,18 @@ public class Transferencia extends Movimentacao {
         Conta contaMovimento = consultarConta(request.getContaMovimento());
 
         if(TipoMovimentacao.TRANSFERENCIA_ENVIADA.equals(request.getTipoMovimentacao())) {
+            if (contaProprietaria.getSaldoAtual() < request.getValor()) {
+                throw new IllegalArgumentException("Saldo insuficiente");
+            }
             contaProprietaria.efetuarMovimento(request, contaProprietaria);
             contaProprietaria.setSaldoAtual(contaProprietaria.getSaldoAtual() - request.getValor());
             request.setTipoMovimentacao(TipoMovimentacao.TRANSFERENCIA_RECEBIDA);
             contaMovimento.efetuarMovimento(request, contaMovimento);
             contaMovimento.setSaldoAtual(contaMovimento.getSaldoAtual() + request.getValor());
         } else if (TipoMovimentacao.TRANSFERENCIA_RECEBIDA.equals(request.getTipoMovimentacao())) {
+            if (contaMovimento.getSaldoAtual() < request.getValor()) {
+                throw new IllegalArgumentException("Saldo insuficiente");
+            }
             contaProprietaria.efetuarMovimento(request, contaProprietaria);
             contaProprietaria.setSaldoAtual(contaProprietaria.getSaldoAtual() - request.getValor());
             request.setTipoMovimentacao(TipoMovimentacao.TRANSFERENCIA_ENVIADA);
