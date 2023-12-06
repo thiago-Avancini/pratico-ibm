@@ -1,0 +1,13 @@
+version: '3'
+services:
+  mysql-server:
+    ports:
+      - 3306:3306
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+    container_name: mysql-pratico
+networks:
+  default:
+    name: pratico-ibm
+    external: true

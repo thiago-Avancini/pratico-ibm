@@ -1,0 +1,12 @@
+version: '3'
+services:
+  pratico:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8090:8090
+networks:
+  default:
+    name: pratico-ibm
+    external: true

@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: cria-usuario-admin
+      author:  thiago
+      changes:
+        - sqlFile:
+            dbms: 'mysql'
+            path:  db/sql/20231202_cria_usuario_admin.sql
+            stripComments: true

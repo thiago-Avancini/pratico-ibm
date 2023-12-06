@@ -1,0 +1,10 @@
+version: '3'
+services:
+  pratico:
+    container_name: pratico
+    build:
+      context: pratico
+      dockerfile: Dockerfile
+    image: pratico:latest
+    ports:
+      - 8090:8080
