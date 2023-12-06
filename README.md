@@ -42,7 +42,7 @@ Movimentação abarca depósitos, saques e transferências. Todas elas possuem o
 * Tipo movimentação deve ser: **TRANSFERENCIA_RECEBIDA**, **TRANSFERENCIA_ENVIADA**, **SAQUE** ou **DEPOSITO**;
 * Os campos _tipoMovimento_, _valor_ e _descricao_ são obrigatórios;
 * Nos dois tipos de transferência enviada deverão ser informados, além dos campos obrigatórios, os campos _contaMovimento_ e _contaProprietaria_;
-* Os depósitos nao devem ter os campos _contaMovimento_ e _contaProprietaria_ preenchidos;
+* Os depósitos devem ter **SOMENTE** o campo _contaProprietaria_ preenchido;
 * No saque só deve ser informada a _contaProprietaria_;
 
 Quanto ao extrato e saldo, o corpo das requisiçõies seguem o mesmo padrão e deve ser informado o número da conta:
