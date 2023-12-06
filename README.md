@@ -41,8 +41,18 @@ Movimentação abarca depósitos, saques e transferências. Todas elas possuem o
 
 * Tipo movimentação deve ser: **TRANSFERENCIA_RECEBIDA**, **TRANSFERENCIA_ENVIADA**, **SAQUE** ou **DEPOSITO**;
 * Os campos _tipoMovimento_, _valor_ e _descricao_ são obrigatórios;
-* Nos dois tipos de transferência enviada deverão ser informados, além dos campos obrigatórios, os campos _contaMovimento_ e _contaProprietaria_
-* Os depósitos contam
+* Nos dois tipos de transferência enviada deverão ser informados, além dos campos obrigatórios, os campos _contaMovimento_ e _contaProprietaria_;
+* Os depósitos nao devem ter os campos _contaMovimento_ e _contaProprietaria_ preenchidos;
+* No saque só deve ser informada a _contaProprietaria_;
+
+Quanto ao extrato e saldo, o corpo das requisiçõies seguem o mesmo padrão e deve ser informado o número da conta:
+
+```json
+    {
+        "numeroConta": "numero-conta"
+    }
+```
+
 
 
 ### Regras aplicadas ###
@@ -52,4 +62,4 @@ Algumas regras de negócio aplicadas não necessáriamente se aplicam ao mundo r
 * Usuários gerentes pode **APENAS** criar usuários do tipo cliente
 * Um CPF pode estar atrelado a um usuario e conta somente(no mundo real, um cliente poderia ter um usuário único porém com múltiplas contas por CPF) 
 * Não foram consideradas, contas pessoa juridica (CNPJ), apenas para simplicação da solução
-* 
+* **SOMENTE** clientes poderão realizar movimentações, requisitar saldos e extratos
