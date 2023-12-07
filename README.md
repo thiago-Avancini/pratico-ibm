@@ -6,6 +6,7 @@
 * Liquibase para versionamento do banco de dados
 * MYSQL para persistência de dados
 * Gradle para gerenciamento de dependência e build da aplicação
+* Postman para requisições HTTP
 
 ### Como executar aplicação ###
 
@@ -16,6 +17,8 @@
 
 
 ### Como testar a aplicação pelo POSTMAN ###
+Baixar a collection do Postman: <https://drive.google.com/file/d/1PvmK4LjLuWqnLO3VxEjx6S5K3i2O5n5S/view?usp=sharing>
+
 A aplicação requer um usuário Admin, que é criado automaticamente ao subir a aplicação pela primeira vez.
 
 Em todas as requisições o token é atribuído à variável "x-Auth-Token" de forma automática. 
